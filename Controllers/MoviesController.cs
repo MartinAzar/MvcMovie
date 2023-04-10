@@ -63,6 +63,7 @@ namespace MvcMovie.Controllers
 
             var movie = await _context.Movie
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (movie == null)
             {
                 return NotFound();
@@ -169,7 +170,7 @@ namespace MvcMovie.Controllers
         {
             if (_context.Movie == null)
             {
-                return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+                return Problem("Entity set 'MvcMovieContext.Movie' is null.");
             }
             var movie = await _context.Movie.FindAsync(id);
             if (movie != null)
